@@ -18,14 +18,14 @@
   </div>
   <div *ngIf="updateStatus!='Success'">
     <h4 class="text-danger">{{updateStatus}}</h4>
-  </div>
+  </div><br><br>
   <h2>View Inventory</h2>
   <div *ngFor="let d of inventoryData">
     <table class="table">
         <div>
             <thead>
             <tr>
-                <th scope="col">#</th>
+                <th scope="col">Store #</th>
                 <th scope="col">Store Name</th>
                 <th scope="col">Manager On Duty</th>
                 <th scope="col">Vanilla Barrels</th>
