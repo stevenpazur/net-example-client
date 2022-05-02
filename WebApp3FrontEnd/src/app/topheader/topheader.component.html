@@ -1,0 +1,14 @@
+<h2>Locations</h2>
+<div class="container">
+  <div *ngFor="let d of topHeadingDisplay" >
+    <div *ngIf="isLoading" >
+      {{loadingStatus}}
+      <img src="../../assets/Eclipse-1s-200px.svg">
+    </div>
+    <div class="card w-25 p-3">
+      <p class="card-title">Shop# {{d.shopId}}</p>
+      <p class="card-text">{{d.streetNumber}} {{d.streetName}}<br>
+      {{d.city}}, {{d.state}} {{d.zipCode}}</p>
+    </div>
+  </div>
+</div>

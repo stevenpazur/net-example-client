@@ -1,0 +1,50 @@
+<h2>Add Inventory</h2>
+<div class="input-group mb-3">
+    <input type="text" id="inputShopId" class="form-control" placeholder="Shop Id" aria-label="Shop Id" aria-describedby="basic-addon2" [(ngModel)]="ShopId">
+    <input type="text" id="inputVan" class="form-control" placeholder="Vanilla Barrels" aria-label="Vanilla Barrels" aria-describedby="basic-addon2" [(ngModel)]="vanilla">
+    <input type="text" id="inputChoc" class="form-control" placeholder="Chocolate Barrels" aria-label="Chocolate Barrels" aria-describedby="basic-addon2" [(ngModel)]="chocolate">
+    <input type="text" id="inputCookie" class="form-control" placeholder="Cookie Containers" aria-label="Cookie Containers" aria-describedby="basic-addon2" [(ngModel)]="cookies">
+    <input type="text" id="inputStraw" class="form-control" placeholder="Strawberry Barrels" aria-label="Strawberry Barrels" aria-describedby="basic-addon2" [(ngModel)]="strawberry">
+    <div class="">
+      <button id="btnPost" class="btn btn-outline-secondary" type="button" (click)="btnClick(ShopId, vanilla, chocolate, strawberry, cookies)" [disabled]="disabled==true">Post</button>
+    </div>
+  </div>
+  <div *ngIf="isLoading==true">
+      <p>Loading inventory data...</p>
+      <img src="../../assets/Eclipse-1s-200px.svg">
+  </div>
+  <div *ngIf="updateStatus=='Success'">
+    <h4 class="text-success">{{updateStatus}}</h4>
+  </div>
+  <div *ngIf="updateStatus!='Success'">
+    <h4 class="text-danger">{{updateStatus}}</h4>
+  </div>
+  <h2>View Inventory</h2>
+  <div *ngFor="let d of inventoryData">
+    <table class="table">
+        <div>
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Store Name</th>
+                <th scope="col">Manager On Duty</th>
+                <th scope="col">Vanilla Barrels</th>
+                <th scope="col">Chocolate Barrels</th>
+                <th scope="col">Strawberry Barrels</th>
+                <th scope="col">Cookie Boxes</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th scope="row">{{d.shopId}}</th>
+                <td class="text-success">Steven's Ice Cream</td>
+                <td>Steven Pazur</td>
+                <td>{{d.vanillaBarrels}}</td>
+                <td>{{d.chocolateBarrels}}</td>
+                <td>{{d.strawberryBarrels}}</td>
+                <td>{{d.cookieJars}}</td>
+            </tr>
+            </tbody>
+        </div>
+    </table>
+  </div>
